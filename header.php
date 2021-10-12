@@ -1,16 +1,5 @@
 <?php
 require_once "connexion.php";
-$recherche = isset($_POST['seach']);
-$q = $pdo->query(
-  "SELECT nom_complet, historique FROM personnages
-   WHERE nom_complet LIKE '%$recherche%'
-   
-   LIMIT 10");
-     while( $r =$q->fetch()){
-      echo 'Résultat de la recherche: '.$r['nom_complet'].' <br />'
- ;  $r='';
-      } 
-
 ?>
 
 <!DOCTYPE html>
