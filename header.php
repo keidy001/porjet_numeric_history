@@ -1,12 +1,16 @@
 <?php
 require_once "connexion.php";
-$recherche = isset($_POST['seach']) ? $_POST['recherche'] : '';
+$recherche = isset($_POST['seach']);
 $q = $pdo->query(
-  "SELECT champ1, champ2 FROM votretable
-   WHERE champ1 LIKE '%$recherche%'
-   OR champ2 LIKE '%$recherche%'
+  "SELECT nom_complet, historique FROM personnages
+   WHERE nom_complet LIKE '%$recherche%'
+   
    LIMIT 10");
-  
+     while( $r =$q->fetch()){
+      echo 'Résultat de la recherche: '.$r['nom_complet'].' <br />'
+ ;  $r='';
+      } 
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@ $q = $pdo->query(
         </li>
       </ul>
       <form class="d-flex" method="POST" action="">
-        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+        <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
         <input class="btn btn-outline-warning" type="submit" value="Chercher">
       </form>
     </div>
