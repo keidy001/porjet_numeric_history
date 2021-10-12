@@ -1,10 +1,5 @@
 <?php
 require_once 'connexion.php';
-$id =$_GET['id'];
-$result=$pdo->prepare("SELECT * FROM personnages WHERE id=$id");
-$result->execute();
-$ok =$result->fetch();
-include('header.php');
 ?>
 
 <div class="card mb-3 mx-4 p-2" style="max-width: 80%;">
