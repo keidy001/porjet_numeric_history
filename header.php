@@ -1,3 +1,14 @@
+<?php
+require_once "connexion.php";
+$recherche = isset($_POST['seach']) ? $_POST['recherche'] : '';
+$q = $pdo->query(
+  "SELECT champ1, champ2 FROM votretable
+   WHERE champ1 LIKE '%$recherche%'
+   OR champ2 LIKE '%$recherche%'
+   LIMIT 10");
+  
+?>
+
 <!DOCTYPE html>
 <html lang='fr'>
 <head>
@@ -10,8 +21,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Numeric history</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">NUMERIC HISTORY</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+    aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,16 +32,10 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="apropos">A propos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact">Contact</a>
-        </li>
       </ul>
-      <form class="d-flex">
+      <form class="d-flex" method="POST" action="">
         <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit">Chercher</button>
+        <input class="btn btn-outline-warning" type="submit" value="Chercher">
       </form>
     </div>
   </div>
