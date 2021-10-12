@@ -15,7 +15,7 @@
 	<header>
 			<nav class="navbar navbar-light bg-warning">
 				<div class="container-fluid">
-				   <a class="navbar-brand">TODO</a>
+				   <a class="navbar-brand">Page d'ajout</a>
 				</div>
 			</nav>	
 		</header>
@@ -24,9 +24,9 @@
  <div class="insert p-5">
 	<form action="trtAdd.php" method="post" enctype='multipart/form-data'>
 		<label>Nom</label>
-		<input type="text" name="nom"><br>
-		<input type="file" name="image"><br>
-		<textarea name="description">Description</textarea><br>
+		<input type="text" class="form-control"  name="nom"><br>
+		<input type="file" class="form-control"  name="image"><br>
+		<textarea name="description" class="form-control"></textarea><br>
 		<a href="index.php" class="btn btn-dark mx-5 mt-4">Annuler</a>	
 		<input type="submit" class=" mt-4 btn btn-warning"  name="ajouter" value="Modifier">
 	</div>
